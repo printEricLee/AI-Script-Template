@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@200;400;600;800&display=swap');
+
+:root {
+    --bg-base: #020617;
+    --border-white: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(15, 23, 42, 0.7);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background-color: var(--bg-base);
+    color: #f1f5f9;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+}
+
+.bg-mesh {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(129, 140, 248, 0.1) 0%, transparent 40%);
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-white);
+    border-radius: 1.25rem;
+}
+
+.code-font { font-family: 'Fira Code', monospace; }
+
+.page { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.hidden-page { display: none; opacity: 0; transform: scale(0.99) translateY(10px); }
+
+.btn-primary {
+    background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+    color: #fff;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+}
+
+.input-tech {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-white);
+    border-radius: 0.75rem;
+    color: white;
+    transition: all 0.2s ease;
+}
+.input-tech:focus { outline: none; border-color: #38bdf8; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+
+.active-lang {
+    background: #38bdf8 !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+/* Select dropdown styling */
+select.input-tech {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+}
+select.input-tech option {
+    background: #0f172a;
+    color: #f1f5f9;
+}
+
+/* Editor textarea */
+#promptEditor {
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 400px;
+}
+#promptEditor:focus {
+    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2);
+}
+
+/* Button disabled state */
+button:disabled {
+    cursor: not-allowed;
+}
